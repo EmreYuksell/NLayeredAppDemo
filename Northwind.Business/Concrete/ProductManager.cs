@@ -19,6 +19,16 @@ namespace Northwind.Business.Concrete
             _productDal = productDal;
         }
 
+        public void Add(Product product)
+        {
+            _productDal.Add(product);
+        }
+
+        public void Update(Product product)
+        {
+            _productDal.Update(product);
+        }
+
         public List<Product> GetAll()
         {
             //Business Code
@@ -29,6 +39,14 @@ namespace Northwind.Business.Concrete
         public List<Product> GetProductsByCategory(int categoryId)
         {
             return _productDal.GetAll(p=>p.CategoryId==categoryId);
-        }   
+        }
+
+        public object GetProductsByProdcuctName(string productName)
+        {
+            return _productDal.GetAll(p => p.ProductName.ToLower().Contains(productName.ToLower()));
+        }
+
+       
     }
 }
+    
