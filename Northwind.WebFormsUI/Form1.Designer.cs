@@ -36,17 +36,17 @@
             this.tbxProductName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbxProductName2 = new System.Windows.Forms.TextBox();
-            this.tbxUnitPrice = new System.Windows.Forms.TextBox();
-            this.tbxStock = new System.Windows.Forms.TextBox();
-            this.tbxQuantityPerUnit = new System.Windows.Forms.TextBox();
-            this.cbxCategory = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.cbxCategory = new System.Windows.Forms.ComboBox();
+            this.tbxQuantityPerUnit = new System.Windows.Forms.TextBox();
+            this.tbxStock = new System.Windows.Forms.TextBox();
+            this.tbxUnitPrice = new System.Windows.Forms.TextBox();
+            this.tbxProductName2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.cbxUpdateCategory = new System.Windows.Forms.ComboBox();
@@ -59,6 +59,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,7 +70,7 @@
             // dgwProduct
             // 
             this.dgwProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwProduct.Location = new System.Drawing.Point(59, 174);
+            this.dgwProduct.Location = new System.Drawing.Point(26, 174);
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(526, 234);
             this.dgwProduct.TabIndex = 0;
@@ -153,41 +154,51 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Urun Ekle";
             // 
-            // label3
+            // btnAdd
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Urun Adı";
+            this.btnAdd.Location = new System.Drawing.Point(373, 136);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(154, 34);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "Ekle";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // label4
+            // cbxCategory
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 153);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Fiyat";
+            this.cbxCategory.FormattingEnabled = true;
+            this.cbxCategory.Location = new System.Drawing.Point(92, 87);
+            this.cbxCategory.Name = "cbxCategory";
+            this.cbxCategory.Size = new System.Drawing.Size(167, 21);
+            this.cbxCategory.TabIndex = 11;
             // 
-            // label5
+            // tbxQuantityPerUnit
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Kategori";
+            this.tbxQuantityPerUnit.Location = new System.Drawing.Point(373, 92);
+            this.tbxQuantityPerUnit.Name = "tbxQuantityPerUnit";
+            this.tbxQuantityPerUnit.Size = new System.Drawing.Size(154, 20);
+            this.tbxQuantityPerUnit.TabIndex = 10;
             // 
-            // label6
+            // tbxStock
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(278, 41);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Stok Adedi";
+            this.tbxStock.Location = new System.Drawing.Point(373, 38);
+            this.tbxStock.Name = "tbxStock";
+            this.tbxStock.Size = new System.Drawing.Size(154, 20);
+            this.tbxStock.TabIndex = 9;
+            // 
+            // tbxUnitPrice
+            // 
+            this.tbxUnitPrice.Location = new System.Drawing.Point(92, 150);
+            this.tbxUnitPrice.Name = "tbxUnitPrice";
+            this.tbxUnitPrice.Size = new System.Drawing.Size(167, 20);
+            this.tbxUnitPrice.TabIndex = 8;
+            // 
+            // tbxProductName2
+            // 
+            this.tbxProductName2.Location = new System.Drawing.Point(92, 38);
+            this.tbxProductName2.Name = "tbxProductName2";
+            this.tbxProductName2.Size = new System.Drawing.Size(167, 20);
+            this.tbxProductName2.TabIndex = 2;
             // 
             // label7
             // 
@@ -198,51 +209,41 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Birim adedi";
             // 
-            // tbxProductName2
+            // label6
             // 
-            this.tbxProductName2.Location = new System.Drawing.Point(92, 38);
-            this.tbxProductName2.Name = "tbxProductName2";
-            this.tbxProductName2.Size = new System.Drawing.Size(167, 20);
-            this.tbxProductName2.TabIndex = 2;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(278, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Stok Adedi";
             // 
-            // tbxUnitPrice
+            // label5
             // 
-            this.tbxUnitPrice.Location = new System.Drawing.Point(92, 150);
-            this.tbxUnitPrice.Name = "tbxUnitPrice";
-            this.tbxUnitPrice.Size = new System.Drawing.Size(167, 20);
-            this.tbxUnitPrice.TabIndex = 8;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Kategori";
             // 
-            // tbxStock
+            // label4
             // 
-            this.tbxStock.Location = new System.Drawing.Point(373, 38);
-            this.tbxStock.Name = "tbxStock";
-            this.tbxStock.Size = new System.Drawing.Size(154, 20);
-            this.tbxStock.TabIndex = 9;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 153);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Fiyat";
             // 
-            // tbxQuantityPerUnit
+            // label3
             // 
-            this.tbxQuantityPerUnit.Location = new System.Drawing.Point(373, 92);
-            this.tbxQuantityPerUnit.Name = "tbxQuantityPerUnit";
-            this.tbxQuantityPerUnit.Size = new System.Drawing.Size(154, 20);
-            this.tbxQuantityPerUnit.TabIndex = 10;
-            // 
-            // cbxCategory
-            // 
-            this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(92, 87);
-            this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(167, 21);
-            this.cbxCategory.TabIndex = 11;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(373, 136);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(154, 34);
-            this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "Ekle";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Urun Adı";
             // 
             // groupBox4
             // 
@@ -355,11 +356,22 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "Urun Adı";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(558, 174);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(52, 234);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "Sil";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 897);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -414,6 +426,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 

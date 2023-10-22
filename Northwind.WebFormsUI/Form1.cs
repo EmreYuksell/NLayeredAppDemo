@@ -46,6 +46,10 @@ namespace Northwind.WebFormsUI
             cbxCategory.DisplayMember = "CategoryName";
             cbxCategory.ValueMember = "CategoryId";
 
+            cbxUpdateCategory.DataSource = _categoryService.GetAll();
+            cbxUpdateCategory.DisplayMember = "CategoryName";
+            cbxUpdateCategory.ValueMember = "CategoryId";
+
 
         }
 
@@ -99,7 +103,7 @@ namespace Northwind.WebFormsUI
         {
             _productService.Update(new Product
             {
-                ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0]),
+                ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
                 ProductName=tbxUpdateProductName.Text,
                 CategoryId = Convert.ToInt32(cbxUpdateCategory.SelectedValue),
                 QuantityPerUnit=tbxUpdateQuantityPerUnıt.Text,
@@ -107,7 +111,7 @@ namespace Northwind.WebFormsUI
                 UnitsInStock=Convert.ToInt16(tbxUpdateUnıtInStock.Text),
 
 
-            }); ;
+            }); 
             MessageBox.Show("Ürün Güncellendi");
             LoadProducts();
         }
@@ -116,10 +120,36 @@ namespace Northwind.WebFormsUI
         {
             var row = dgwProduct.CurrentRow;
             tbxUpdateProductName.Text = row.Cells[1].Value.ToString();
-            cbxUpdateCategory.Text = row.Cells[2].Value.ToString();
+            cbxUpdateCategory.SelectedValue = row.Cells[2].Value;
             tbxUpdateUnitPrice.Text = row.Cells[3].Value.ToString();
             tbxUpdateQuantityPerUnıt.Text=row.Cells[4].Value.ToString();
             tbxUpdateUnıtInStock.Text = row.Cells[5].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgwProduct.CurrentRow != null)
+            {
+                try
+                {
+                    _productService.Delete(new Product
+                    {
+                        ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value)
+
+                    });
+                    MessageBox.Show("Urun Silindi");
+                    LoadProducts();
+                }
+                catch(Exception exception)
+                {
+
+                    MessageBox.Show(exception.Message);            
+                }
+              
+
+
+            };
+          
         }
     }
 }
