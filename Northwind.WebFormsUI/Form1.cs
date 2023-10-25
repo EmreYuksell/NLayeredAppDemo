@@ -1,5 +1,6 @@
 ﻿using Northwind.Business.Abstract;
 using Northwind.Business.Concrete;
+using Northwind.Business.DependecyResolves.Ninject;
 using Northwind.DataAcces.Concrete.EntityFramework;
 using Northwind.DataAcces.Concrete.EntıtyFramework;
 using Northwind.Entities.Concrete;
@@ -20,8 +21,8 @@ namespace Northwind.WebFormsUI
         public Form1()
         {
             InitializeComponent();
-             _productService  = new ProductManager(new EfProductDal());
-             _categoryService = new CategoryManager(new EfCategoryDal());
+            _productService = InstanceFactory.GetInstance<IProductService>();
+            _categoryService = InstanceFactory.GetInstance<ICategoryService>();
         }
         private IProductService _productService; 
         private ICategoryService _categoryService;
@@ -111,19 +112,30 @@ namespace Northwind.WebFormsUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            _productService.Update(new Product
+
+            try
             {
-                ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
-                ProductName=tbxUpdateProductName.Text,
-                CategoryId = Convert.ToInt32(cbxUpdateCategory.SelectedValue),
-                QuantityPerUnit=tbxUpdateQuantityPerUnıt.Text,
-                UnitPrice=Convert.ToDecimal(tbxUpdateUnitPrice.Text),
-                UnitsInStock=Convert.ToInt16(tbxUpdateUnıtInStock.Text),
+                _productService.Update(new Product
+                {
+                    ProductId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value),
+                    ProductName = tbxUpdateProductName.Text,
+                    CategoryId = Convert.ToInt32(cbxUpdateCategory.SelectedValue),
+                    QuantityPerUnit = tbxUpdateQuantityPerUnıt.Text,
+                    UnitPrice = Convert.ToDecimal(tbxUpdateUnitPrice.Text),
+                    UnitsInStock = Convert.ToInt16(tbxUpdateUnıtInStock.Text),
 
 
-            }); 
-            MessageBox.Show("Ürün Güncellendi");
-            LoadProducts();
+                });
+                MessageBox.Show("Ürün Güncellendi");
+                LoadProducts();
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show(exception.Message);
+            }
+          
+           
         }
 
         private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
